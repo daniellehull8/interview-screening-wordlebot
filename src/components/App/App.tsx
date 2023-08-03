@@ -1,8 +1,8 @@
 import { Container } from "@mui/material";
-import Layout from "./components/Layout";
-import Header from "./components/Header";
+import Layout from "../Layout";
+import Header from "../Header";
 import React, { useState, useEffect } from 'react';
-import { WordleRequestItem, WordleResponse, fetchWordleResult } from './api/api';
+import { WordleRequestItem, WordleResponse, fetchWordleResult } from '../../api/api';
 
 function App() {
     const [loading, setLoading] = useState(true);
