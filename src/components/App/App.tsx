@@ -9,20 +9,20 @@ function App() {
     const [error, setError] = useState(false);
     const [words, setWords] = useState<string[]>([]);
 
-    function handleSuccess(response: WordleResponse) {
+    const handleSuccess = (response: WordleResponse) => {
       console.log('success');
       console.log(response);
       setWords((prev) => [response.guess, ...prev]);
       setLoading(false);
     }
 
-    function handleError(error: Error) {
+    const handleError = (error: Error) => {
       console.log('error');
       console.log(error);
       setError(true);
     }
 
-    function handleWordleRequest(word: string, clue: string) {
+    const handleWordleRequest = (word: string, clue: string) => {
       const requestItem: WordleRequestItem = { word, clue };
 
       fetchWordleResult([requestItem])
@@ -30,7 +30,7 @@ function App() {
         .catch(handleError);
     }
 
-    function generateStartingWord(): string {
+    const generateStartingWord = (): string => {
       let startingWord = '';
 
       for (let i = 0; i < 5; i++) {
