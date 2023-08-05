@@ -1,9 +1,13 @@
 import React from 'react';
+import Letter from '../Letter/Letter';
 
 function Word(props) {
+  const letters = [...props.word];
   return (
     <>
-      Here is a word in word component: {props.word}.
+      {letters.map((letter, index) =>
+        <Letter key={props.word + letter + index} letter={letter} />
+      )}
     </>
   );
 }
