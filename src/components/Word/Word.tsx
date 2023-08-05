@@ -4,30 +4,36 @@ import ColorSelectGroup, { ButtonColor } from '../ColorSelectGroup/ColorSelectGr
 import { Box, Button, CircularProgress } from '@mui/material';
 import styles from './Word.module.css';
 
-function Word(props) {
-  const letters = [...props.word];
+type WordProps = {
+  word: string,
+  active: boolean,
+  handleSubmit: (word: string, clue: string) => void
+};
+
+function Word({word, active, handleSubmit} : WordProps) {
+  const letters = Array.from(word);
   const [clue, setClue] = useState(['x', 'x', 'x', 'x', 'x']);
   const [loading, setLoading] = useState(false);
 
-  const handleColorSelect = (newColor, index) => {
+  const handleColorSelect = (newColor: string, index: number) => {
     setClue((prev) => prev.map((color, i) => i === index ? newColor : color));
   };
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     console.log(clue.join(''));
     setLoading(true);
-    props.handleSubmit(props.word, clue.join(''));
+    handleSubmit(word, clue.join(''));
   };
 
   return (
     <div style={{display: 'flex'}}>
       {letters.map((letter, index) =>
-        <Box key={'b' + props.word + letter + index} className={styles.word}>
-          <Letter key={'l' + props.word + letter + index} letter={letter} color={clue[index]} />
-          <ColorSelectGroup active={!loading && props.active} key={'c' + props.word + letter + index} index={index} selectColor={handleColorSelect} />
+        <Box key={'b' + word + letter + index} className={styles.word}>
+          <Letter key={'l' + word + letter + index} letter={letter} color={clue[index]} />
+          <ColorSelectGroup active={!loading && active} key={'c' + word + letter + index} index={index} selectColor={handleColorSelect} />
         </Box>
       )}
-      <Button className={styles.button + ' ' + (props.active ? '' : styles.hidden)} onClick={handleClick}>
+      <Button className={styles.button + ' ' + (active ? '' : styles.hidden)} onClick={handleClick}>
         {loading ? <CircularProgress size={24} /> : '>'}
       </Button>
     </div>
