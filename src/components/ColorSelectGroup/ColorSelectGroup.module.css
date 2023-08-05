@@ -1,0 +1,24 @@
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.white {
+  background-color: white;
+}
+
+.colorButton {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  border: 1px solid;
+  min-width: unset;
+}
+
+.buttonGroup {
+  display: flex;
+  margin: 8px;
+}
