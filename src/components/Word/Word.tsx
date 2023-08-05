@@ -34,7 +34,7 @@ function Word({word, active, handleSubmit} : WordProps) {
           <ColorSelectGroup active={!loading && active} key={'c' + word + letter + index} index={index} selectColor={handleColorSelect} />
         </Box>
       )}
-      <Button className={styles.button + ' ' + (active ? '' : styles.hidden)} onClick={handleClick}>
+      <Button disabled={loading} className={styles.button + ' ' + (active ? '' : styles.hidden)} onClick={handleClick}>
         {loading ? <CircularProgress size={24} /> : <CheckIcon className={styles.checkIcon} />}
       </Button>
     </div>

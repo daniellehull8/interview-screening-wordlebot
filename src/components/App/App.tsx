@@ -9,6 +9,11 @@ function App() {
     const [error, setError] = useState(false);
     const [words, setWords] = useState<string[]>([]);
     const [complete, setComplete] = useState(false);
+    const [win, setWin] = useState(false);
+
+    const successMessage = `Congratulations! Your word was guessed in ${words.length} guess${words.length === 1 ? '': 'es'}!`;
+    const failureMessage = 'Unfortunately, you did not win this time.';
+    const errorMessage = `Apologies, an error has occurred. Error: ${error}.`;
 
     const handleSuccess = (response: WordleResponse) => {
       console.log('success');
@@ -35,8 +40,10 @@ function App() {
     const handleSubmit = (word: string, clue: string) => {
       if (clue === 'ggggg') {
         setComplete(true);
+        setWin(true);
       } else if (words.length === 6) {
         setComplete(true);
+        setWin(false);
       } else {
         handleWordleRequest(word, clue);
       }
@@ -63,6 +70,8 @@ function App() {
                 <Header />
                 {words.length < 1 ? <CircularProgress size={60} /> : ''}
                 <WordleBoard words={words} complete={complete} handleSubmit={handleSubmit} />
+                {complete ? (win ? <h2>{successMessage}</h2> : <h2>{failureMessage}</h2>) : ''}
+                {error ? <h2>{errorMessage}</h2> : ''}
             </Container>
         </Layout>
     );
