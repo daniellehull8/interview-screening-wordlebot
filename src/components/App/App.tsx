@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, CircularProgress } from "@mui/material";
 import Layout from "../Layout";
 import Header from "../Header";
 import React, { useState, useEffect } from 'react';
@@ -8,13 +8,12 @@ import WordleBoard from '../WordleBoard/WordleBoard';
 function App() {
     const [error, setError] = useState(false);
     const [words, setWords] = useState<string[]>([]);
+    const [complete, setComplete] = useState(false);
 
     const handleSuccess = (response: WordleResponse) => {
       console.log('success');
       console.log(response);
-      if (words.length < 6) {
-        setWords((prev) => [...prev, response.guess]);
-      }
+      setWords((prev) => [...prev, response.guess]);
     }
 
     const handleError = (error: Error) => {
@@ -32,6 +31,16 @@ function App() {
         .then(handleSuccess, handleError)
         .catch(handleError);
     }
+
+    const handleSubmit = (word: string, clue: string) => {
+      if (clue === 'ggggg') {
+        setComplete(true);
+      } else if (words.length === 6) {
+        setComplete(true);
+      } else {
+        handleWordleRequest(word, clue);
+      }
+    };
 
     const generateStartingWord = (): string => {
       let startingWord = '';
@@ -52,7 +61,8 @@ function App() {
         <Layout>
             <Container maxWidth="sm">
                 <Header />
-                <WordleBoard words={words} handleSubmit={handleWordleRequest} />
+                {words.length < 1 ? <CircularProgress size={60} /> : ''}
+                <WordleBoard words={words} complete={complete} handleSubmit={handleSubmit} />
             </Container>
         </Layout>
     );

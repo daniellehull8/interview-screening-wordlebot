@@ -24,7 +24,7 @@ function Word(props) {
       {letters.map((letter, index) =>
         <Box key={'b' + props.word + letter + index} className={styles.word}>
           <Letter key={'l' + props.word + letter + index} letter={letter} color={clue[index]} />
-          <ColorSelectGroup className={props.active ? '' : styles.hidden} key={'c' + props.word + letter + index} index={index} selectColor={handleColorSelect} />
+          <ColorSelectGroup active={!loading && props.active} key={'c' + props.word + letter + index} index={index} selectColor={handleColorSelect} />
         </Box>
       )}
       <Button className={styles.button + ' ' + (props.active ? '' : styles.hidden)} onClick={handleClick}>

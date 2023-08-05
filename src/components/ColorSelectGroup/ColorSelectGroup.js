@@ -11,7 +11,7 @@ function ColorSelectGroup(props) {
   };
 
   return (
-    <div className={styles.buttonGroup}>
+    <div className={styles.buttonGroup + ' ' + (props.active ? '' : styles.hidden)}>
       <Button name={'x' + props.index} className={styles.white + ' ' + styles.colorButton}
         variant='outlined' onClick={handleClick}></Button>
       <Button name={'y' + props.index} className={styles.yellow + ' ' + styles.colorButton}

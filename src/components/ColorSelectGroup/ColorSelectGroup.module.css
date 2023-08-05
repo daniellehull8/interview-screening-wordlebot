@@ -22,3 +22,7 @@
   display: flex;
   margin: 8px;
 }
+
+.hidden {
+  visibility: hidden;
+}
