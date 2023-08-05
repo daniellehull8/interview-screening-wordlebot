@@ -5,11 +5,16 @@
 .button {
   background-color: lightgrey;
   margin-top: 25px;
-  height: 115px;
+  height: 80px;
+  width: 80px;
   font-size: 40px;
   color: #000000;
 }
 
 .hidden {
   visibility: hidden;
+}
+
+.checkIcon {
+  font-size: 2.5rem;
 }

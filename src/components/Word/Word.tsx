@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Letter from '../Letter/Letter';
 import ColorSelectGroup, { ButtonColor } from '../ColorSelectGroup/ColorSelectGroup';
 import { Box, Button, CircularProgress } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
 import styles from './Word.module.css';
 
 type WordProps = {
@@ -34,7 +35,7 @@ function Word({word, active, handleSubmit} : WordProps) {
         </Box>
       )}
       <Button className={styles.button + ' ' + (active ? '' : styles.hidden)} onClick={handleClick}>
-        {loading ? <CircularProgress size={24} /> : '>'}
+        {loading ? <CircularProgress size={24} /> : <CheckIcon className={styles.checkIcon} />}
       </Button>
     </div>
   );
