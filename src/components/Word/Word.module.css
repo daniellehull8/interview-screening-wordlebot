@@ -1,3 +1,11 @@
 .word {
   margin: 10px;
 }
+
+.button {
+  background-color: lightgrey;
+  margin-top: 25px;
+  height: 115px;
+  font-size: 40px;
+  color: #000000;
+}

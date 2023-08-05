@@ -9,3 +9,15 @@
   font-weight: bold;
   font-size: 35px;
 }
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.white {
+  background-color: white;
+}
