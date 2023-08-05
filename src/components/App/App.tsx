@@ -12,7 +12,9 @@ function App() {
     const handleSuccess = (response: WordleResponse) => {
       console.log('success');
       console.log(response);
-      setWords((prev) => [...prev, response.guess]);
+      if (words.length < 6) {
+        setWords((prev) => [...prev, response.guess]);
+      }
     }
 
     const handleError = (error: Error) => {
@@ -22,7 +24,9 @@ function App() {
     }
 
     const handleWordleRequest = (word: string, clue: string) => {
+      console.log('handling wordle request');
       const requestItem: WordleRequestItem = { word, clue };
+      console.log(requestItem);
 
       fetchWordleResult([requestItem])
         .then(handleSuccess, handleError)
@@ -48,7 +52,7 @@ function App() {
         <Layout>
             <Container maxWidth="sm">
                 <Header />
-                <WordleBoard words={words} />
+                <WordleBoard words={words} handleSubmit={handleWordleRequest} />
             </Container>
         </Layout>
     );

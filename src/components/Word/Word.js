@@ -14,6 +14,7 @@ function Word(props) {
 
   const handleClick = (event) => {
     console.log(clue.join(''));
+    props.handleSubmit(props.word, clue.join(''));
   };
 
   return (
