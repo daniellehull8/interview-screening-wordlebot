@@ -3,17 +3,16 @@ import Layout from "../Layout";
 import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import { WordleRequestItem, WordleResponse, fetchWordleResult } from '../../api/api';
+import WordleBoard from '../WordleBoard/WordleBoard';
 
 function App() {
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [words, setWords] = useState<string[]>([]);
 
     const handleSuccess = (response: WordleResponse) => {
       console.log('success');
       console.log(response);
-      setWords((prev) => [response.guess, ...prev]);
-      setLoading(false);
+      setWords((prev) => [...prev, response.guess]);
     }
 
     const handleError = (error: Error) => {
@@ -49,7 +48,7 @@ function App() {
         <Layout>
             <Container maxWidth="sm">
                 <Header />
-                {/* Insert App here */}
+                <WordleBoard words={words} />
             </Container>
         </Layout>
     );
