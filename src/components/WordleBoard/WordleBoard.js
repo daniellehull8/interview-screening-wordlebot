@@ -6,7 +6,7 @@ function WordleBoard(props) {
   return (
     <>
       {props.words.map((word, index) =>
-        <Word key={word + index} word={word} handleSubmit={props.handleSubmit} />
+        <Word key={word + index} word={word} active={index === props.words.length - 1} handleSubmit={props.handleSubmit} />
       )}
     </>
   );
