@@ -31,7 +31,7 @@ function App() {
         .catch(handleError);
 
     const handleSubmit = (word: WordleRequestItem) => {
-      if (word.clue === 'ggggg') {
+      if (word.clue.toUpperCase() === 'GGGGG') {
         setComplete(true);
         setWin(true);
       } else if (words.length === 6) {
