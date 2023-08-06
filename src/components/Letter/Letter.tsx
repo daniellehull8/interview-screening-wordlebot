@@ -23,7 +23,9 @@ function Letter({ letter, color }: LetterProps) {
 
   return (
     <>
-      <Paper elevation={4} className={styles.square + ' ' + setStyleColor()}>{letter.toUpperCase()}</Paper>
+      <Paper elevation={4} className={`${styles.square} ${setStyleColor()}`}>
+        {letter.toUpperCase()}
+      </Paper>
     </>
   );
 }
