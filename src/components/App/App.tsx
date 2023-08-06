@@ -2,7 +2,7 @@ import { Box, Container, CircularProgress } from "@mui/material";
 import Layout from "../Layout";
 import Header from "../Header";
 import React, { useState, useEffect } from 'react';
-import { WordleRequestItem, WordleRequest, WordleResponse, fetchWordleResult } from '../../api/api';
+import { WordleRequestItem, WordleRequest, WordleResponse, fetchWordleResult, generateStartingWord } from '../../api/api';
 import WordleBoard from '../WordleBoard/WordleBoard';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { baseThemeOptions } from "../theme";
@@ -54,17 +54,6 @@ function App() {
           return w;
         }));
     };
-
-    const generateStartingWord = (): string => {
-      let startingWord = '';
-
-      for (let i = 0; i < 5; i++) {
-        let offset = Math.floor(Math.random() * 26);
-        startingWord += String.fromCharCode(97 + offset);
-      }
-
-      return startingWord;
-    }
 
     useEffect(() => {
       handleWordleRequest({ word:generateStartingWord(), clue:'xxxxx'});

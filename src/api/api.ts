@@ -9,6 +9,17 @@ export type WordleResponse = {
     guess: string;
 };
 
+export const generateStartingWord = (): string => {
+  let startingWord = '';
+
+  for (let i = 0; i < 5; i++) {
+    let offset = Math.floor(Math.random() * 26);
+    startingWord += String.fromCharCode(97 + offset);
+  }
+
+  return startingWord;
+}
+
 const API_PATH = "https://interviewing.venteur.co/api/wordle";
 
 const isWordleResponse = (responseObject: unknown): responseObject is WordleResponse => {
