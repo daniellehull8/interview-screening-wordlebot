@@ -1,4 +1,8 @@
 .word {
+  padding-left: 100px;
+}
+
+.letter {
   margin: 10px;
 }
 

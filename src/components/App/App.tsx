@@ -72,7 +72,7 @@ function App() {
     return (
       <ThemeProvider theme={appTheme}>
         <Layout>
-            <Container maxWidth="sm">
+            <Container maxWidth='md'>
                 <Header />
                 {words.length < 1 ? <CircularProgress size={60} /> : ''}
                 <WordleBoard words={words} complete={complete} handleSubmit={handleSubmit} />
