@@ -1,4 +1,4 @@
-import { Container, CircularProgress } from "@mui/material";
+import { Box, Container, CircularProgress } from "@mui/material";
 import Layout from "../Layout";
 import Header from "../Header";
 import React, { useState, useEffect } from 'react';
@@ -73,11 +73,13 @@ function App() {
       <ThemeProvider theme={appTheme}>
         <Layout>
             <Container maxWidth='md'>
-                <Header />
-                {words.length < 1 ? <CircularProgress size={60} /> : ''}
-                <WordleBoard words={words} complete={complete} handleSubmit={handleSubmit} />
+              <Header />
+              {words.length < 1 ? <Box display='flex' justifyContent='center' alignItems='center' height='20vh'><CircularProgress size={60} /></Box> : ''}
+              <WordleBoard words={words} complete={complete} handleSubmit={handleSubmit} />
+              <Box display='flex' justifyContent='center' alignItems='center'>
                 {complete ? (win ? <h2>{successMessage}</h2> : <h2>{failureMessage}</h2>) : ''}
                 {error ? <h2>{errorMessage}</h2> : ''}
+              </Box>
             </Container>
         </Layout>
       </ThemeProvider>
