@@ -9,12 +9,12 @@ type LetterProps = {
 
 function Letter({ letter, color }: LetterProps) {
   const setStyleColor = () => {
-    switch (color) {
-      case 'g':
+    switch (color.toUpperCase()) {
+      case 'G':
         return styles.green;
-      case 'y':
+      case 'Y':
         return styles.yellow;
-      case 'x':
+      case 'X':
         return styles.white;
       default:
         return '';

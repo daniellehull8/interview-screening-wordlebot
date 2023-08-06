@@ -4,10 +4,8 @@ import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import { WordleRequestItem, WordleRequest, WordleResponse, fetchWordleResult, generateStartingWord } from '../../api/api';
 import WordleBoard from '../WordleBoard/WordleBoard';
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { baseThemeOptions } from "../theme";
-
-const appTheme = createTheme(baseThemeOptions);
+import { ThemeProvider } from "@mui/material/styles";
+import { appTheme } from "../theme";
 
 function App() {
     const [error, setError] = useState<Error>();
@@ -43,6 +41,11 @@ function App() {
     };
 
     const handleClueChange = (word: WordleRequestItem, newClue: string, index: number) => {
+      if (newClue === '' || index === -1) {
+        setError(new Error('Clue was in an incorrect format'));
+        return;
+      }
+
       setWords((prev) =>
         prev.map(w => {
           if (w.word === word.word) {

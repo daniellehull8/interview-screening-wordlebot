@@ -10,16 +10,17 @@ type ColorSelectGroupProps = {
 
 function ColorSelectGroup({active, index, selectColor}: ColorSelectGroupProps) {
 
-  const handleClick = ({ currentTarget }: MouseEvent<HTMLButtonElement>) =>
-    selectColor(currentTarget.name[0], parseInt(currentTarget.name[1]));
+  const handleClick = ({ currentTarget }: MouseEvent<HTMLButtonElement>) => {
+    selectColor(currentTarget.dataset.clue || '', parseInt(currentTarget.dataset.index || '-1'));
+  }
 
   return (
     <div className={`${styles.buttonGroup} ${(active ? '' : styles.hidden)}`}>
-      <Button name={'x' + index} className={`${styles.white} ${styles.colorButton}`}
+      <Button data-clue='x' data-index={index} className={`${styles.white} ${styles.colorButton}`}
         variant='contained' onClick={handleClick}></Button>
-      <Button color='secondary' name={'y' + index} className={styles.colorButton}
+      <Button data-clue='y' data-index={index} color='secondary' className={styles.colorButton}
         variant='contained' onClick={handleClick}></Button>
-      <Button color='primary' name={'g' + index} className={styles.colorButton}
+      <Button data-clue='g' data-index={index} color='primary' className={styles.colorButton}
         variant='contained' onClick={handleClick}></Button>
     </div>
   );
