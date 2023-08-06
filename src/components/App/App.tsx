@@ -4,6 +4,11 @@ import Header from "../Header";
 import React, { useState, useEffect } from 'react';
 import { WordleRequestItem, WordleResponse, fetchWordleResult } from '../../api/api';
 import WordleBoard from '../WordleBoard/WordleBoard';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { baseThemeOptions } from "../theme";
+
+const appTheme = createTheme(baseThemeOptions);
+console.log(appTheme);
 
 function App() {
     const [error, setError] = useState(false);
@@ -65,6 +70,7 @@ function App() {
     }, []);
 
     return (
+      <ThemeProvider theme={appTheme}>
         <Layout>
             <Container maxWidth="sm">
                 <Header />
@@ -74,6 +80,8 @@ function App() {
                 {error ? <h2>{errorMessage}</h2> : ''}
             </Container>
         </Layout>
+      </ThemeProvider>
+
     );
 }
 

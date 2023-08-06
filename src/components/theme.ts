@@ -1,7 +1,16 @@
 import { ThemeOptions } from "@mui/material/styles";
 
 export const baseThemeOptions: ThemeOptions = {
+    palette: {
+      primary: {
+        main: '#6ca965'
+      },
+      secondary: {
+        main: '#c8b653'
+      }
+    },
     typography: {
+        fontFamily: 'Arial',
         // Full Screen Hero Text
         h1: {
             fontSize: "2.625rem", // 42px

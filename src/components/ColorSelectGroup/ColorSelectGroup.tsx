@@ -19,11 +19,11 @@ function ColorSelectGroup({active, index, selectColor}: ColorSelectGroupProps) {
   return (
     <div className={styles.buttonGroup + ' ' + (active ? '' : styles.hidden)}>
       <Button name={'x' + index} className={styles.white + ' ' + styles.colorButton}
-        variant='outlined' onClick={handleClick}></Button>
-      <Button name={'y' + index} className={styles.yellow + ' ' + styles.colorButton}
-        variant='outlined' onClick={handleClick}></Button>
-      <Button name={'g' + index} className={styles.green + ' ' + styles.colorButton}
-        variant='outlined' onClick={handleClick}></Button>
+        variant='contained' onClick={handleClick}></Button>
+      <Button color='secondary' name={'y' + index} className={styles.colorButton}
+        variant='contained' onClick={handleClick}></Button>
+      <Button color='primary' name={'g' + index} className={styles.colorButton}
+        variant='contained' onClick={handleClick}></Button>
     </div>
   );
 }
