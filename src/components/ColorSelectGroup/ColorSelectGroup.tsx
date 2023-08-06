@@ -2,7 +2,7 @@ import React, { MouseEvent } from 'react';
 import { ButtonGroup, Button } from '@mui/material';
 import styles from './ColorSelectGroup.module.css';
 
-export type ButtonColor = 'g' | 'y' | 'x';
+export type ClueLetter = 'g' | 'y' | 'x';
 
 type ColorSelectGroupProps = {
   active: boolean,
