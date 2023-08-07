@@ -59,7 +59,7 @@ function App() {
     };
 
     useEffect(() => {
-      handleWordleRequest({ word:generateStartingWord(), clue:'xxxxx'});
+      handleWordleRequest({ word: generateStartingWord(), clue: 'xxxxx'});
     }, []);
 
     return (
