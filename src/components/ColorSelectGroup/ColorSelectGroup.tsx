@@ -1,7 +1,9 @@
 import React, { useState, MouseEvent } from 'react';
+
 import { ButtonGroup, Button } from '@mui/material';
-import styles from './ColorSelectGroup.module.css';
 import CheckIcon from '@mui/icons-material/Check';
+
+import styles from './ColorSelectGroup.module.css';
 
 type ColorSelectGroupProps = {
   active: boolean,

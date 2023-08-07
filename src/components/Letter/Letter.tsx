@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Paper } from '@mui/material';
+
 import styles from './Letter.module.css';
 
 type LetterProps = {

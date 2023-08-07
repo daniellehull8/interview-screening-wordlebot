@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import Letter from '../Letter/Letter';
-import ColorSelectGroup from '../ColorSelectGroup/ColorSelectGroup';
+
 import { Box, Button, CircularProgress } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
-import styles from './Word.module.css';
+
 import { WordleRequestItem } from '../../api/api';
+import Letter from '../Letter/Letter';
+import ColorSelectGroup from '../ColorSelectGroup/ColorSelectGroup';
+
+import styles from './Word.module.css';
 
 type WordProps = {
   word: WordleRequestItem,

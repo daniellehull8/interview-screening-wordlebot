@@ -1,6 +1,7 @@
 import React from 'react';
-import Word from '../Word/Word';
+
 import { WordleRequest, WordleRequestItem } from '../../api/api';
+import Word from '../Word/Word';
 
 type WordleBoardProps = {
   words: WordleRequest,

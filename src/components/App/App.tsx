@@ -1,10 +1,12 @@
+import React, { useState, useEffect } from 'react';
+
 import { Box, Container, CircularProgress } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+
+import { WordleRequestItem, WordleRequest, WordleResponse, fetchWordleResult, generateStartingWord } from '../../api/api';
 import Layout from "../Layout";
 import Header from "../Header";
-import React, { useState, useEffect } from 'react';
-import { WordleRequestItem, WordleRequest, WordleResponse, fetchWordleResult, generateStartingWord } from '../../api/api';
 import WordleBoard from '../WordleBoard/WordleBoard';
-import { ThemeProvider } from "@mui/material/styles";
 import { appTheme } from "../theme";
 
 function App() {
