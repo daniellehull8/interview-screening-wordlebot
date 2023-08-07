@@ -27,15 +27,15 @@ function ColorSelectGroup({active, index, selectColor}: ColorSelectGroupProps) {
     <div className={`${styles.buttonGroup} ${(active ? '' : styles.hidden)}`}>
       <Button data-clue='x' data-index={index} className={`${styles.white} ${styles.colorButton}`}
         variant='contained' onClick={handleClick}>
-        {showIcon[0] ? <CheckIcon /> : ''}
+        {showIcon[0] ? <CheckIcon className={styles.checkIcon} /> : ''}
       </Button>
       <Button data-clue='y' data-index={index} color='secondary' className={styles.colorButton}
         variant='contained' onClick={handleClick}>
-        {showIcon[1] ? <CheckIcon /> : ''}
+        {showIcon[1] ? <CheckIcon className={styles.checkIcon} /> : ''}
       </Button>
       <Button data-clue='g' data-index={index} color='primary' className={styles.colorButton}
         variant='contained' onClick={handleClick}>
-        {showIcon[2] ? <CheckIcon /> : ''}
+        {showIcon[2] ? <CheckIcon className={styles.checkIcon} /> : ''}
       </Button>
     </div>
   );
