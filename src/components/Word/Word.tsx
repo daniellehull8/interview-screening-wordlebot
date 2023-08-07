@@ -37,7 +37,7 @@ function Word({word, active, handleSubmit, handleClueChange} : WordProps) {
             index={index} selectColor={handleColorSelect} />
         </Box>
       )}
-      <Button disabled={loading} className={`${styles.button} ${(active ? '' : styles.hidden)}`}
+      <Button name='wordSubmit' disabled={loading} className={`${styles.button} ${(active ? '' : styles.hidden)}`}
         onClick={handleClick}>
         {loading ? <CircularProgress size={24} /> : <CheckIcon className={styles.checkIcon} />}
       </Button>

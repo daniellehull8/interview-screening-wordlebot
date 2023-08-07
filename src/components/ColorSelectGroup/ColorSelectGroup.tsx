@@ -13,29 +13,28 @@ type ColorSelectGroupProps = {
 
 function ColorSelectGroup({active, index, selectColor}: ColorSelectGroupProps) {
   const [showIcon, setShowIcon] = useState([true, false, false]);
-  const clueValues = ['x', 'y', 'g'];
 
   const handleClick = ({ currentTarget }: MouseEvent<HTMLButtonElement>) => {
-    const color = currentTarget.dataset.clue || '';
-    if (color !== '') {
-      const colorIndex = clueValues.indexOf(color);
-      setShowIcon((prev) => prev.map((c, i) => i === colorIndex));
+    const buttonIndex = parseInt(currentTarget.dataset.index || '-1');
+
+    if (buttonIndex !== -1) {
+      setShowIcon((prev) => prev.map((c, i) => i === buttonIndex));
     }
 
-    selectColor(color, parseInt(currentTarget.dataset.index || '-1'));
+    selectColor(currentTarget.dataset.clue || '', index);
   }
 
   return (
     <div className={`${styles.buttonGroup} ${(active ? '' : styles.hidden)}`}>
-      <Button data-clue='x' data-index={index} className={`${styles.white} ${styles.colorButton}`}
+      <Button name='whiteButton' data-clue='x' data-index='0' className={`${styles.white} ${styles.colorButton}`}
         variant='contained' onClick={handleClick}>
         {showIcon[0] ? <CheckIcon className={styles.checkIcon} /> : ''}
       </Button>
-      <Button data-clue='y' data-index={index} color='secondary' className={styles.colorButton}
+      <Button name='yellowButton' data-clue='y' data-index='1' color='secondary' className={styles.colorButton}
         variant='contained' onClick={handleClick}>
         {showIcon[1] ? <CheckIcon className={styles.checkIcon} /> : ''}
       </Button>
-      <Button data-clue='g' data-index={index} color='primary' className={styles.colorButton}
+      <Button name='greenButton' data-clue='g' data-index='2' color='primary' className={styles.colorButton}
         variant='contained' onClick={handleClick}>
         {showIcon[2] ? <CheckIcon className={styles.checkIcon} /> : ''}
       </Button>

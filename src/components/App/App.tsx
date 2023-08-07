@@ -67,19 +67,19 @@ function App() {
     return (
       <ThemeProvider theme={appTheme}>
         <Layout>
-            <Container maxWidth='md'>
-              <Header />
-              {words.length < 1 ?
-                <Box display='flex' justifyContent='center' alignItems='center' height='20vh'>
-                  <CircularProgress size={60} />
-                </Box> : ''}
-              <WordleBoard words={words} complete={complete || error !== undefined}
-                handleSubmit={handleSubmit} handleClueChange={handleClueChange} />
-              <Box display='flex' justifyContent='center' alignItems='center'>
-                {complete ? (win ? <h2>{successMessage}</h2> : <h2>{failureMessage}</h2>) : ''}
-                {error ? <h2>{errorMessage}</h2> : ''}
-              </Box>
-            </Container>
+          <Container maxWidth='md'>
+            <Header />
+            {words.length < 1 ?
+              <Box display='flex' justifyContent='center' alignItems='center' height='20vh'>
+                <CircularProgress size={60} />
+              </Box> : ''}
+            <WordleBoard words={words} complete={complete || error !== undefined}
+              handleSubmit={handleSubmit} handleClueChange={handleClueChange} />
+            <Box display='flex' justifyContent='center' alignItems='center'>
+              {complete ? (win ? <h2>{successMessage}</h2> : <h2>{failureMessage}</h2>) : ''}
+              {error ? <h2>{errorMessage}</h2> : ''}
+            </Box>
+          </Container>
         </Layout>
       </ThemeProvider>
 
